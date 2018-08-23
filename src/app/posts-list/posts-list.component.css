@@ -1,0 +1,9 @@
+
+  body {
+    margin: 40;
+    font-family: BlinkMacSystemFont, sans-serif;
+   }
+  
+  .example-header-image {
+    background-size: cover;
+  }
