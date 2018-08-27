@@ -1,9 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule} from '@angular/core';
 import { AppComponent } from './app.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { PostsListComponent } from './posts-list/posts-list.component';
-import { NavigationComponent } from './navigation/navigation.component';
 import { LoginComponent } from './login/login.component';
 import { SinglepostComponent } from './singlepost/singlepost.component';
 import { SignupComponent } from './signup/signup.component';
@@ -13,7 +12,7 @@ import { MaterialModule } from './material';
 import { LayoutModule } from '@angular/cdk/layout';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import{ ComponentsModule } from './shared/components/components.module';
 import { PostService } from './post.service';
 import { UserService } from './user.service';
 
@@ -24,7 +23,7 @@ import { UserService } from './user.service';
 const appRoutes: Routes = [
   { path: 'user/list', component: UserListComponent },
   { path: 'posts/list', component: PostsListComponent },
-  { path: '',  redirectTo:'login',pathMatch: 'full' },
+ // { path: '',  redirectTo:'login', pathMatch: 'full' },
 
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
@@ -33,16 +32,14 @@ const appRoutes: Routes = [
 
 
 
-  
-  
-  //{ path: '**', component: PageNotFoundComponent }
+
+
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
     UserListComponent,
-    NavigationComponent,
     PostsListComponent,
     LoginComponent,
     SinglepostComponent,
@@ -54,33 +51,33 @@ const appRoutes: Routes = [
     BrowserModule,
     LayoutModule,
     HttpClientModule,
-    
+    ComponentsModule,
+
    BrowserAnimationsModule,
    ReactiveFormsModule,
 
-   
+
 
     RouterModule.forRoot(appRoutes),
-      
+
   ],
-  exports:[
+  exports: [
     AppComponent,
     UserListComponent,
-    NavigationComponent,
     PostsListComponent,
     LoginComponent,
     SinglepostComponent,
     SignupComponent,
   ]
   ,
-  providers: [UserService,PostService],
+  providers: [UserService, PostService],
   bootstrap: [AppComponent],
-  
+
 
 })
 
 export class AppModule {
 
 
-  
+
  }

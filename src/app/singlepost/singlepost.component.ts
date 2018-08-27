@@ -1,8 +1,8 @@
-import { Component, OnInit,Input } from '@angular/core';
-import { Post } from "../models/post.model";
-import { Comment } from "../models/comment.model";
+import { Component, OnInit, Input } from '@angular/core';
 
 
+import { Post } from '../shared/models/post.model';
+import { Comment } from '../shared/models/comment.model';
 import { PostService } from '../post.service';
 
 
@@ -13,7 +13,7 @@ import { PostService } from '../post.service';
   styleUrls: ['./singlepost.component.css']
 })
 export class SinglepostComponent implements OnInit {
-  
+
   @Input() post: Post;
   comments: Array<Comment>;
   constructor(private postService: PostService) { }
@@ -23,8 +23,6 @@ export class SinglepostComponent implements OnInit {
       this.comments = data;
     });
     console.log(this.comments);
-
- 
 
   }
 

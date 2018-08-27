@@ -1,18 +1,16 @@
 export interface User {
-    id: Float32Array;
-
+    id: number ;
     name: string;
     username: string;
-
     email: string;
     phone: string;
     company: {
-        name: string;
-    }
+    name: string; };
+
     address: {
         street: string;
-        city:string;
-    }
+        city: string;
+                   };
 
-    website:string
+    website: string ;
 }

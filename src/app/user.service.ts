@@ -1,9 +1,10 @@
-import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import {User}  from './models/user.model';
-
-
+import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+
+
+import {User}  from './shared/models/user.model';
+
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,15 @@ export class UserService {
   getAll(): Observable<User[]> {
     return this.http.get<User[]>(this.serviceUrl);
   }
-  
+
+  createUser(user: User) {
+    return this.http.post(this.serviceUrl, user);
+  }
+
+  deleteUser(user: any) {
+    return this.http.delete(this.serviceUrl, user.id);
+  }
+
 
   constructor(private http: HttpClient) {
   }}

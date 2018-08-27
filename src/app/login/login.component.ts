@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 
-import { Signup } from "../models/signup.model";
+import { Signup } from '../shared/models/signup.model';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 @Component({
   selector: 'app-login',
@@ -21,13 +21,13 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
 
     this.loginForm = this.formBuilder.group({
-     
+
       'email': [this.user.email, [
         Validators.required,
         Validators.email
       ]],
-      
-      
+
+
       'password': [this.user.password, [
         Validators.required,
         Validators.minLength(6),
