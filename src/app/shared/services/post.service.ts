@@ -24,8 +24,18 @@ export class PostService {
       console.log(response + 'deleting from da server'); } )  ;
 
   }
+  addPost(post: Post) {
+    return this.http.post(this.postsUrl, JSON.stringify(post)).subscribe(
+      (response) => {
+      console.log(response + 'post added to the server'); } )  ;
+  }
+  updatePost(post: Post) {
+    return this.http.put(this.postsUrl + '/' + post.id, JSON.stringify(post)).subscribe(
+      (response) => {
+      console.log(response + 'post updated to the server'); } )  ;
+  }
 
- getComments(id: Float32Array):  Observable<Comment[]> {
+  getComments(id: Float32Array):  Observable<Comment[]> {
     return this.http.get<Comment[]>(this.postsUrl + id + '/comments');
   }
 }

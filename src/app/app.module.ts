@@ -15,6 +15,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import{ ComponentsModule } from './shared/components/components.module';
 import { PostService } from './shared/services/post.service';
 import { UserService } from './shared/services/user.service';
+import { AddpostComponent } from './addpost/addpost.component';
 
 
 
@@ -42,6 +43,7 @@ const appRoutes: Routes = [
      PostsListComponent,
     LoginComponent,
     SignupComponent,
+    AddpostComponent,
 
   ],
   imports: [
