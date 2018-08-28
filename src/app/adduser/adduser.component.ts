@@ -31,18 +31,23 @@ addPost() {
         Validators.required,
         Validators.email
       ]],
-
-
-      'phone number': [this.user.phone, [
+      'name': [this.user.name, [
         Validators.required,
-        Validators.pattern('[0-9]+'),
+      ]],
+      'username': [this.user.username, [
+        Validators.required,
+      ]],
+
+
+      'phone': [this.user.phone, [
+        Validators.required,
         Validators.minLength(6),
-        Validators.maxLength(30)
+        Validators.maxLength(30),
       ]]
     });
   }
 
-onLoginSubmit() {
+  onaddUserSubmit() {
   this.userservice.createUser(this.user);
   this.router.navigate(['/user/list']);
    }
