@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { PostsListComponent } from './posts-list/posts-list.component';
 import { LoginComponent } from './login/login.component';
+import {AddpostComponent } from './addpost/addpost.component';
 import { SignupComponent } from './signup/signup.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes, CanActivate } from '@angular/router';
@@ -15,7 +16,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import{ ComponentsModule } from './shared/components/components.module';
 import { PostService } from './shared/services/post.service';
 import { UserService } from './shared/services/user.service';
-import { AddpostComponent } from './addpost/addpost.component';
+import { AdduserComponent } from './adduser/adduser.component';
 
 
 
@@ -26,6 +27,10 @@ const appRoutes: Routes = [
   { path: 'user/list', component: UserListComponent, canActivate: [AuthGuardService] },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
+  { path: 'addPost', component: AddpostComponent },
+  { path: 'addUser', component: AdduserComponent },
+
+
 
 
 
@@ -44,6 +49,7 @@ const appRoutes: Routes = [
     LoginComponent,
     SignupComponent,
     AddpostComponent,
+    AdduserComponent,
 
   ],
   imports: [
