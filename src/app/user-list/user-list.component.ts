@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../user.service';
+import { UserService } from '../shared/services/user.service';
 import {DataSource} from '@angular/cdk/collections';
 import { Observable } from 'rxjs';
 import {User} from '../shared/models/user.model';
-
-
 
 @Component({
   selector: 'app-data',
@@ -14,7 +12,7 @@ import {User} from '../shared/models/user.model';
 export class UserListComponent implements OnInit {
 
   dataSource = new UserDataSource(this.userService);
-   displayedColumns = ['id', 'name', 'email', 'phone',  'company', 'website', 'actions'];
+  displayedColumns = ['id', 'name', 'email', 'phone',  'company', 'website', 'actions'];
   DeleteUser(id: number) {
   this.userService.deleteUser(id);
 

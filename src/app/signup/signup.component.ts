@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 
 import { Signup } from '../shared/models/signup.model';
+import { AuthService } from  '../shared/services/auth.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 @Component({
   selector: 'app-signup',
@@ -10,14 +11,11 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class SignupComponent implements OnInit {
 
-  private signup : Signup = new Signup();
-   signupForm : FormGroup;
+  public signup: Signup = new Signup();
+  signupForm: FormGroup;
   hide = true;
 
-
-    router: Router;
-
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private router: Router, private authservice: AuthService ) { }
 
   ngOnInit() {
 
@@ -40,8 +38,7 @@ export class SignupComponent implements OnInit {
   }
 
   onRegisterSubmit() {
-    alert("heyy done Mr"+this.signup.username+"you're have created an account");
-    //this.router.navigateByUrl('posts/list')
+    this.authservice.register();
+    this.router.navigate(['/user/list']);
   }
-
 }

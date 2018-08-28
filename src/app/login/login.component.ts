@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from '@angular/router';
+import { Router } from '@angular/router';
 
+import { AuthService } from  '../shared/services/auth.service';
 import { Signup } from '../shared/models/signup.model';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 @Component({
@@ -10,13 +11,12 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 
-  private user : Signup = new Signup();
-   loginForm : FormGroup;
+public user: Signup = new Signup();
+   loginForm: FormGroup;
   hide = true;
 
-  router: Router;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private router: Router, private authservice: AuthService ) { }
 
   ngOnInit() {
 
@@ -37,9 +37,7 @@ export class LoginComponent implements OnInit {
   }
 
   onLoginSubmit() {
-    //alert("heyy done Mr"+this.user.username+"you're now logged in");
-   // this.router.navigate['posts/list']
-
+   this.authservice.login();
+    this.router.navigate(['/user/list']);
   }
-
 }

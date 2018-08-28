@@ -4,7 +4,7 @@
 
     <form [formGroup]="signupForm" (ngSubmit)="signupForm.valid"   novalidate>
       <div class="form-container">
-       
+
 
         <mat-form-field>
             <input id="email"
@@ -33,10 +33,10 @@
               </mat-icon>
           </mat-form-field>
 
-          <button mat-button type="submit" 
+          <button mat-button type="submit"
           routerLink="/posts/list"
-                  class="mat-raised-button mat-primary" 
-                  [disabled]="!signupForm.valid">Register</button>
+                  class="mat-raised-button mat-primary"
+                  [disabled]="!signupForm.valid"  (click)= onRegisterSubmit() >Register</button>
           <button mat-button routerLink="/login" class="divider">Login</button>
       </div>
     </form>

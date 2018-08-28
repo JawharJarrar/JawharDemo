@@ -1,21 +1,29 @@
 import { NgModule } from '@angular/core';
-
+import { CommonModule } from '@angular/common';
 import { NavigationComponent } from './navigation/navigation.component';
-import { UserListComponent } from '../../user-list/user-list.component';
+import { SinglepostComponent } from './/singlepost/singlepost.component';
+import { MaterialModule } from './material';
+import { RouterModule } from '@angular/router';
+
 
 
 
 @NgModule({
   declarations: [
       NavigationComponent,
-      UserListComponent,
+      SinglepostComponent
   ],
-  imports: [ ],
+  imports: [
+      MaterialModule,
+      CommonModule,
+      RouterModule
+
+   ],
   exports:  [
       NavigationComponent,
-      UserListComponent,
+      SinglepostComponent
   ],
 })
 
 export class ComponentsModule {}
-export {NavigationComponent, UserListComponent };
+export {NavigationComponent, SinglepostComponent };

@@ -1,7 +1,10 @@
+import { Router } from '@angular/router';
 import { Component } from '@angular/core';
 import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { AuthService } from  '../../services/auth.service';
+
 
 @Component({
   selector: 'app-navigation',
@@ -14,7 +17,15 @@ export class NavigationComponent {
     .pipe(
       map(result => result.matches)
     );
+  UserLogout( ) {
+    this.authservice.logout( );
+    this.router.navigate(['/login']);
+  }
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  constructor(private breakpointObserver: BreakpointObserver,
+                      public authservice: AuthService,
+                      private router:  Router
+
+                       ) {}
 
   }

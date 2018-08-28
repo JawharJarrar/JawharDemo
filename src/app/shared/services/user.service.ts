@@ -1,9 +1,11 @@
+import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 
-import {User}  from './shared/models/user.model';
+
+import {User}  from '../models/user.model';
 
 
 @Injectable({
@@ -21,8 +23,11 @@ export class UserService {
     return this.http.post(this.serviceUrl, user);
   }
 
-  deleteUser(user: any) {
-    return this.http.delete(this.serviceUrl, user.id);
+  deleteUser(userid: number) {
+    return this.http.delete(this.serviceUrl + '/' + userid ).subscribe(
+      (response) => {
+      console.log(response); } )  ;
+
   }
 
 

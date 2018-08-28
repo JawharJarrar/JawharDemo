@@ -5,16 +5,16 @@
     <img mat-card-image   src="../assets/post.png"  width="5px" alt="Post">
     <mat-card-content>
       <p>
-         <strong>content:{{post.body}}</strong> 
+         <strong>content:{{post.body}}</strong>
       </p>
 
 
     <mat-expansion-panel (opened)="panelOpenState = true"
                          (closed)="panelOpenState = false">
       <mat-expansion-panel-header>
-        <mat-panel-title>         <h4>show comments </h4> 
+        <mat-panel-title>         <h4>show comments </h4>
                  </mat-panel-title>
-       
+
       </mat-expansion-panel-header>
       <mat-list>
 
@@ -34,8 +34,8 @@
 
     </mat-card-content>
     <mat-card-actions>
-      <button mat-button>SHARE</button>
+
+      <button mat-button   (click)=deletePost(post.id) >Delete post</button>
     </mat-card-actions>
 
 
-    
