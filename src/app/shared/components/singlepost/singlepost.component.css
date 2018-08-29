@@ -1,1 +1,13 @@
+.button-row button,
+.button-row a {
+  margin-right: 3px;
+}
 
+body {
+  margin: 200;
+  font-family: BlinkMacSystemFont, sans-serif;
+ }
+
+.example-header-image {
+  background-size: cover;
+}

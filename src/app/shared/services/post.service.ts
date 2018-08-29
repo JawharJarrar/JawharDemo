@@ -22,17 +22,23 @@ export class PostService {
     return this.http.delete(this.postsUrl + '/' + postid ).subscribe(
       (response) => {
       console.log(response + 'deleting from da server'); } )  ;
-
   }
+
   addPost(post: Post) {
     return this.http.post(this.postsUrl, JSON.stringify(post)).subscribe(
       (response) => {
       console.log(response + 'post added to the server'); } )  ;
   }
-  updatePost(post: Post) {
-    return this.http.put(this.postsUrl + '/' + post.id, JSON.stringify(post)).subscribe(
+  getById(postid: number) {
+    return this.http.get(this.postsUrl + '/' + postid ).subscribe(
       (response) => {
-      console.log(response + 'post updated to the server'); } )  ;
+      console.log(response); } )  ;
+  }
+
+  updatePost(postid: number, post: Post) {
+    return this.http.put(this.postsUrl + '/' + postid, JSON.stringify(post)).subscribe(
+      (response) => {
+      console.log(response); } )  ;
   }
 
   getComments(id: Float32Array):  Observable<Comment[]> {

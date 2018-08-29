@@ -1,17 +1,4 @@
-@import 'https://fonts.googleapis.com/icon?family=Material+Icons';
-
-body {
- margin: 0;
- font-family: BlinkMacSystemFont, sans-serif;
-}
-table {
-    width: 100%;
-  }
-  
-  tr.mat-footer-row {
-    font-weight: bold;
-  }
-  .button-row button,
+.button-row button,
 .button-row a {
   margin-right: 8px;
-}   
+}

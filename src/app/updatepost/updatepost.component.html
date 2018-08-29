@@ -1,0 +1,37 @@
+<div class="medium-list">
+    <div class="list-viewer-wrapper">
+      <div class="list-header-title">update post form</div>
+
+      <form [formGroup]="UpdatePostForm" (ngSubmit)="UpdatePostForm.valid" >
+        <div class="form-container">
+
+          <mat-form-field>
+              <input id="name"
+                     matInput
+                     formControlName="title"
+                     [(ngModel)]="post.title"
+                     placeholder=" title" />
+            </mat-form-field>
+
+          <mat-form-field>
+              <input  id="body" calass="full "
+                     matInput
+                     formControlName="body"
+                     [(ngModel)]="post.body"
+                     placeholder="post content"
+                     />
+
+            </mat-form-field>
+
+
+
+
+            <button mat-button type="submit"
+                    class="mat-raised-button mat-primary"
+                    (click)= onUpdatePostSubmit()
+                    [disabled]="!UpdatePostForm.valid">add post</button>
+
+        </div>
+      </form>
+    </div>
+  </div>

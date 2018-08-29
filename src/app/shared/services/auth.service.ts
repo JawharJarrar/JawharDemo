@@ -9,17 +9,14 @@ export class AuthService {
 
   login() {
     localStorage.setItem('token', 'fake login token');
-
   }
 
   register() {
     localStorage.setItem('token', 'fake register token');
-
   }
 
   logout() {
     localStorage.removeItem('token');
-
   }
   IsLoggedin() {
    const token = localStorage.getItem('token');
@@ -27,6 +24,6 @@ export class AuthService {
      return false;
    }
    return true;
-
   }
+
 }
