@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { CommentService } from '../../services/comment.service';
+import {MatDialogRef, MAT_DIALOG_DATA, MatDialog} from '@angular/material';
+
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { DataService } from '../../services/data.service';
 import { Comment } from '../../models/comment.model';
-
-
 
 @Component({
   selector: 'app-addcomment',
@@ -21,7 +21,8 @@ export class AddcommentComponent implements OnInit {
  constructor(private formBuilder: FormBuilder,
                        private router: Router,
                       private dataservice:  DataService,
-                      private  commentservice: CommentService ) { }
+                      private  commentservice: CommentService,
+                     ) { }
 
     ngOnInit() {
 

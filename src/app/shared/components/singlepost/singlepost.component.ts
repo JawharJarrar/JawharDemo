@@ -10,7 +10,6 @@ import { UpdatecommentComponent } from '../updatecomment/updatecomment.component
 import { CommentService } from './../../services/comment.service';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 
-
 @Component({
   selector: 'app-singlepost',
   templateUrl: './singlepost.component.html',

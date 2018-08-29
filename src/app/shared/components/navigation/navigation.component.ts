@@ -6,7 +6,6 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { AuthService } from  '../../services/auth.service';
 
-
 @Component({
   selector: 'app-navigation',
   templateUrl: './navigation.component.html',
