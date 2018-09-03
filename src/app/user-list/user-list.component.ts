@@ -25,7 +25,6 @@ export class UserListComponent implements OnInit {
       data: { name: '' }
     });
     dialogRef.afterClosed().subscribe(result => {
-      const index = this.users.indexOf(result);
       this.users.push(result);
       this.dataSource = new UserDataSource(this.users);
     });
@@ -60,7 +59,6 @@ export class UserListComponent implements OnInit {
   constructor(private userService: UserService,
                       private  dataService: DataService,
                       public dialog: MatDialog,
-
                        ) { }
   ngOnInit() {
     this.userService.getAll().subscribe(data => {

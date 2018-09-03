@@ -20,7 +20,6 @@ export class PostsListComponent implements OnInit {
       data: {  action: 'add'}
     });
     dialogRef.afterClosed().subscribe(result => {
-      const index = this.posts.indexOf(result);
       this.posts.push(result);
     });
   }
