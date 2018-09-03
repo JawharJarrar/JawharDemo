@@ -83,7 +83,8 @@ export class SinglepostComponent implements OnInit {
       data: { name: comment.name,  email: comment.email,  body: comment.body, action: 'edit'}
     });
     dialogRef.afterClosed().subscribe(result => {
-      this.comments[result.id - 1] = result;
+      const index = this.comments.indexOf(comment);
+      this.comments[index] = result;
     });
   }
 
