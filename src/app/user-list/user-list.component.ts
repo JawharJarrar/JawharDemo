@@ -26,9 +26,7 @@ export class UserListComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(result => {
       const index = this.users.indexOf(result);
-      alert(index);
       this.users.push(result);
-      console.log( this.users);
       this.dataSource = new UserDataSource(this.users);
     });
   }
@@ -77,7 +75,6 @@ export class UserDataSource extends DataSource<any> {
     super();
   }
   connect(): Observable< User[]> {
-    console.log(this.users);
     return of(this.users) ;
   }
   disconnect() {}

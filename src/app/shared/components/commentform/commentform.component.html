@@ -1,6 +1,6 @@
 <div class="medium-list">
     <div class="list-viewer-wrapper">
-      <div class="list-header-title">update comment form</div>
+      <div class="list-header-title"> comment form</div>
 
       <form [formGroup]="Commentform"  (ngSubmit)=" Commentform.valid" >
         <div class="form-container">
@@ -39,7 +39,7 @@
                     class="mat-raised-button mat-primary"
                     (click)=  CommentSubmit()
                     [disabled]="!Commentform.valid"
-                    mat-dialog-close="yes" >update comment</button>
+                    mat-dialog-close="yes" >submit comment</button>
 
         </div>
       </form>

@@ -1,6 +1,6 @@
 <div class="medium-list">
     <div class="list-viewer-wrapper">
-      <div class="list-header-title">add user form</div>
+      <div class="list-header-title"> user form</div>
 
       <form [formGroup]="UserForm" (ngSubmit)="UserForm.valid" >
         <div class="form-container">
@@ -46,7 +46,7 @@
                     class="mat-raised-button mat-primary"
                     (click)= UserSubmit()
                     [disabled]="!UserForm.valid"
-                    mat-dialog-close="yes">add user</button>
+                    mat-dialog-close="yes">submit  user</button>
 
         </div>
       </form>
