@@ -1,9 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavigationComponent } from './navigation/navigation.component';
-import { SinglepostComponent } from './/singlepost/singlepost.component';
-import { AddcommentComponent } from './addcomment/addcomment.component';
-import { UpdatecommentComponent } from './updatecomment/updatecomment.component';
+import { CommentformComponent } from './commentform/commentform.component';
+
+import { SinglepostComponent } from './singlepost/singlepost.component';
+import { ConfirmComponent } from './confirm/confirm.component';
+import { PostformComponent } from './postform/postform.component';
+import { UserformComponent } from './userform/userform.component';
+
+
 import { MaterialModule } from './material';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
@@ -12,28 +17,29 @@ import { RouterModule } from '@angular/router';
   declarations: [
       NavigationComponent,
       SinglepostComponent,
-      AddcommentComponent,
-      UpdatecommentComponent,
+      CommentformComponent,
+      UserformComponent,
+      PostformComponent,
+      ConfirmComponent,
   ],
   imports: [
       MaterialModule,
       CommonModule,
       RouterModule,
-      ReactiveFormsModule
-
+      ReactiveFormsModule,
    ],
    entryComponents: [
-    AddcommentComponent,
-    UpdatecommentComponent,
-
+    CommentformComponent,
+    ConfirmComponent,
+    UserformComponent,
+    PostformComponent
   ],
   exports:  [
       NavigationComponent,
       SinglepostComponent,
-      AddcommentComponent,
-      UpdatecommentComponent
+      CommentformComponent,
   ],
 })
 
 export class ComponentsModule {}
-export {NavigationComponent, SinglepostComponent, AddcommentComponent, UpdatecommentComponent };
+export {NavigationComponent, SinglepostComponent, CommentformComponent};

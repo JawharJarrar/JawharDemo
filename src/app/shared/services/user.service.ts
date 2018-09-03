@@ -9,32 +9,29 @@ import {User}  from '../models/user.model';
   providedIn: 'root'
 })
 export class UserService {
-  private serviceUrl = 'https://jsonplaceholder.typicode.com/users';
+  private serviceUrl = 'https://jsonplaceholder.typicode.com/users/';
 
   getAll(): Observable<User[]> {
     return this.http.get<User[]>(this.serviceUrl);
   }
 
   createUser(user: User) {
-    return this.http.post(this.serviceUrl, JSON.stringify(user) );
+    return this.http.post(this.serviceUrl, JSON.stringify(user) ).subscribe();
   }
 
-  deleteUser(userid: number) {
-    return this.http.delete(this.serviceUrl + '/' + userid ).subscribe(
-      (response) => {
-      console.log(response); }) ;
+  deleteUser(user: User) {
+    return this.http.delete(this.serviceUrl + '/' + user.id ).subscribe() ;
   }
+
   getById(userid: number) {
-    return this.http.get(this.serviceUrl + '/' + userid ).subscribe(
-      (response) => {
-      console.log(response); } )  ;
+    return this.http.get(this.serviceUrl + '/' + userid ).subscribe()  ;
   }
 
   updateUser(userid: number, user: User) {
-    return this.http.put(this.serviceUrl + '/' + userid, JSON.stringify(user)).subscribe(
-      (response) => {
-      console.log(response); } )  ;
+    return this.http.put(this.serviceUrl + '/' + userid, JSON.stringify(user)).subscribe()  ;
   }
 
+
   constructor(private http: HttpClient) {
-  }}
+  }
+}

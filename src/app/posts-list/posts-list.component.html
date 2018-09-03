@@ -1,10 +1,10 @@
 
-      <button   mat-flat-button   routerLink="/addPost"  >add new post</button>
+      <button   mat-flat-button   (click)="AddPost()"  >add new post</button>
 
   <mat-list>
 
           <mat-card  *ngFor="let post of posts" class="example-card" >
-            <app-singlepost  [post]="post" ></app-singlepost>
+            <app-singlepost  [post]="post" [posts]="posts"  ></app-singlepost>
 
   </mat-card>
 

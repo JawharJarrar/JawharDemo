@@ -28,8 +28,8 @@
         <p mat-line>
           content: {{comment.body}}</p>
           <div class="button-row">
-          <button   mat-stroked-button color="primary"   (click)=deleteComment(comment.id) >Delete Comment</button>
-          <button     mat-stroked-button color="primary"   (click)=editComment(post.id,comment.id) >edit Comment</button>
+          <button   mat-stroked-button color="primary"   (click)=deleteComment(comment) >Delete Comment</button>
+          <button     mat-stroked-button color="primary"   (click)=editComment(post.id,comment.id,comment) >edit Comment</button>
         </div>
 
       </mat-list-item>
@@ -44,9 +44,9 @@
     <mat-card-actions>
 
 
-      <button  mat-raised-button  color="primary" (click)=deletePost(post.id) >Delete post</button>
-      <button   mat-raised-button color="primary"  (click)=UpdatePost(post.id) >Edit post</button>
-      <button    mat-raised-button color="primary"  (click)=AddComment() >Add Comment</button>
+      <button  mat-raised-button  color="primary" (click)=deletePost(post) >Delete post</button>
+      <button   mat-raised-button  color="accent"  (click)=UpdatePost(post) >Edit post</button>
+      <button    mat-raised-button color="warn"  (click)=AddComment(post.id) >Add Comment</button>
 <br> <br> <br>
       <mat-divider></mat-divider>
 

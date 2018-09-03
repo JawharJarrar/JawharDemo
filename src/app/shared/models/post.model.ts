@@ -1,9 +1,6 @@
 export class Post {
-    id: Float32Array;
-
+    id: number;
     userId: string;
     title: string;
-
     body: string;
-
 }

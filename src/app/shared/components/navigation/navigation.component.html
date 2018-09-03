@@ -1,6 +1,7 @@
 <mat-sidenav-container class="sidenav-container">
     <mat-sidenav
       #drawer
+      *ngIf="authservice.IsLoggedin()"
       class="sidenav"
       fixedInViewport="true"
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"

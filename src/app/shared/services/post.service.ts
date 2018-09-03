@@ -18,30 +18,24 @@ export class PostService {
     return this.http.get<Post[]>(this.postsUrl);
   }
 
-  deletePost(postid: number) {
-    return this.http.delete(this.postsUrl + '/' + postid ).subscribe(
-      (response) => {
-      console.log(response + 'deleting from da server'); } )  ;
+  deletePost(post: Post) {
+    return this.http.delete(this.postsUrl + '/' + post.id ).subscribe()  ;
   }
 
   addPost(post: Post) {
-    return this.http.post(this.postsUrl, JSON.stringify(post)).subscribe(
-      (response) => {
-      console.log(response + 'post added to the server'); } )  ;
+    console.log('before');
+    return this.http.post(this.postsUrl, JSON.stringify(post)).subscribe();
   }
+
   getById(postid: number) {
-    return this.http.get(this.postsUrl + '/' + postid ).subscribe(
-      (response) => {
-      console.log(response); } )  ;
+    return this.http.get(this.postsUrl + '/' + postid ).subscribe();
   }
 
   updatePost(postid: number, post: Post) {
-    return this.http.put(this.postsUrl + '/' + postid, JSON.stringify(post)).subscribe(
-      (response) => {
-      console.log(response); } )  ;
+    return this.http.put(this.postsUrl + '/' + postid, JSON.stringify(post)).subscribe() ;
   }
 
-  getComments(id: Float32Array):  Observable<Comment[]> {
+  getComments(id: number):  Observable<Comment[]> {
     return this.http.get<Comment[]>(this.postsUrl + id + '/comments');
   }
 }

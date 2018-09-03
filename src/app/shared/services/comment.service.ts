@@ -1,4 +1,3 @@
-import { Observable } from 'rxjs';
 import { Injectable }   from '@angular/core';
 import { HttpClient }  from '@angular/common/http';
 
@@ -14,25 +13,18 @@ export class CommentService {
   constructor(private http: HttpClient) {}
 
   addComment(comment: Comment) {
-    return this.http.post(this.commentsUrl, JSON.stringify(comment)).subscribe(
-      (response) => {
-      console.log(response + 'comment added to the server'); } )  ;
+    return this.http.post(this.commentsUrl, JSON.stringify(comment)).subscribe();
   }
 
   getById(commentid: number) {
-    return this.http.get(this.commentsUrl + '/' + commentid ).subscribe(
-      (response) => {
-      console.log(response); } )  ;
+    return this.http.get(this.commentsUrl + '/' + commentid ).subscribe()  ;
   }
-  deleteComment(commentid: number) {
-    return this.http.delete(this.commentsUrl + '/' + commentid ).subscribe(
-      (response) => {
-      console.log(response); } )  ;
+
+  deleteComment(comment: Comment) {
+    return this.http.delete(this.commentsUrl + '/' + comment.id ).subscribe()  ;
   }
 
   updateComment(commentid: number, comment: Comment) {
-    return this.http.put(this.commentsUrl + '/' + commentid, JSON.stringify(comment)).subscribe(
-      (response) => {
-      console.log(response); } )  ;
+    return this.http.put(this.commentsUrl + '/' + commentid, JSON.stringify(comment)).subscribe();
   }
 }

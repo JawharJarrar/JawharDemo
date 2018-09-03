@@ -2,11 +2,12 @@
     <div class="list-viewer-wrapper">
       <div class="list-header-title">update post form</div>
 
-      <form [formGroup]="UpdatePostForm" (ngSubmit)="UpdatePostForm.valid" >
+      <form [formGroup]="PostForm" (ngSubmit)=" PostForm.valid" >
+
         <div class="form-container">
 
           <mat-form-field>
-              <input id="name"
+              <input id="title"
                      matInput
                      formControlName="title"
                      [(ngModel)]="post.title"
@@ -14,7 +15,7 @@
             </mat-form-field>
 
           <mat-form-field>
-              <input  id="body" calass="full "
+              <input  id="body"
                      matInput
                      formControlName="body"
                      [(ngModel)]="post.body"
@@ -26,10 +27,13 @@
 
 
 
-            <button mat-button type="submit"
+
+
+                    <button mat-button type="submit"
                     class="mat-raised-button mat-primary"
-                    (click)= onUpdatePostSubmit()
-                    [disabled]="!UpdatePostForm.valid">add post</button>
+                    (click)= PostSubmit()
+                    [disabled]="!PostForm.valid"
+                    mat-dialog-close="yes" >update post</button>
 
         </div>
       </form>
