@@ -1,55 +1,36 @@
 <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title>
-        <h1 class="mat-h1">{{post.title}}</h1>
-
-
-      </mat-card-title>
-    </mat-card-header>
-    <img    src="../assets/post.png"   alt="Post">
-    <mat-card-content>
-
-        <h2 class="mat-h2">content:{{post.body}}</h2>
-
-
-    <mat-expansion-panel (opened)="panelOpenState = true"
-                         (closed)="panelOpenState = false">
-      <mat-expansion-panel-header>
-        <mat-panel-title>         <h4>show comments </h4>
-                 </mat-panel-title>
-
-      </mat-expansion-panel-header>
-      <mat-list>
-
-        <h3 mat-subheader>all comments</h3>
-      <mat-list-item *ngFor="let comment of comments">
-        <h4 mat-line>name:{{comment.name}}</h4>
-        <h4 mat-line>email:{{comment.email}}</h4>
-        <p mat-line>
-          content: {{comment.body}}</p>
-          <div class="button-row">
-          <button   mat-stroked-button color="primary"   (click)=deleteComment(comment) >Delete Comment</button>
-          <button     mat-stroked-button color="primary"   (click)=editComment(post.id,comment.id,comment) >edit Comment</button>
-        </div>
-
+  <div mat-card-avatar class="example-header-image"></div>
+  <mat-card-title>
+    <h1 class="mat-h1">{{post.title}}</h1>
+  </mat-card-title>
+</mat-card-header>
+<img src="../assets/post.png"   alt="Post">
+<mat-card-content>
+  <h2 class="mat-h2">content:{{post.body}}</h2>
+  <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+      <mat-panel-title> <h4>show comments </h4>  </mat-panel-title>
+    </mat-expansion-panel-header>
+    <mat-list  *ngFor="let comment of comments">
+       <h4 >name:{{comment.name}}</h4>
+       <h4>email:{{comment.email}}</h4>
+       <h3>content: {{comment.body}}</h3>
+      <mat-list-item>
+          <mat-card-actions>
+            <button  mat-raised-button color="warn"   (click)=deleteComment(comment) >Delete Comment</button>
+            <button   mat-raised-button  color="primary"   (click)=editComment(post.id,comment.id,comment) >edit Comment</button>
+          </mat-card-actions>
+          <mat-divider></mat-divider>
       </mat-list-item>
-
-
-
-</mat-list>
-
-</mat-expansion-panel>
-
-    </mat-card-content>
-    <mat-card-actions>
-
-
-      <button  mat-raised-button  color="primary" (click)=deletePost(post) >Delete post</button>
-      <button   mat-raised-button  color="accent"  (click)=UpdatePost(post) >Edit post</button>
-      <button    mat-raised-button color="warn"  (click)=AddComment(post.id) >Add Comment</button>
-<br> <br> <br>
-      <mat-divider></mat-divider>
-
-    </mat-card-actions>
+      </mat-list>
+  </mat-expansion-panel>
+</mat-card-content>
+<mat-card-actions>
+  <button  mat-raised-button  color="primary" (click)=deletePost(post) >Delete post</button>
+  <button   mat-raised-button  color="accent"  (click)=UpdatePost(post) >Edit post</button>
+  <button    mat-raised-button color="warn"  (click)=AddComment(post.id) >Add Comment</button>
+  <br> <br> <br>
+  <mat-divider></mat-divider>
+</mat-card-actions>
 
 

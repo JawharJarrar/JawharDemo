@@ -1,10 +1,8 @@
 <div class="medium-list">
     <div class="list-viewer-wrapper">
       <div class="list-header-title"> comment form</div>
-
       <form [formGroup]="Commentform"  (ngSubmit)=" Commentform.valid" >
         <div class="form-container">
-
           <mat-form-field>
               <input id="name"
                      matInput
@@ -12,35 +10,25 @@
                      [(ngModel)]="comment.name"
                      placeholder=" name" />
             </mat-form-field>
-
           <mat-form-field>
               <input  id="email"
                      matInput
                      formControlName="email"
                      [(ngModel)]="comment.email"
-                     placeholder="email"
-                     />
-
+                     placeholder="email" />
             </mat-form-field>
             <mat-form-field>
                 <input  id="body" class="full"
                        matInput
                        formControlName="body"
                        [(ngModel)]="comment.body"
-                       placeholder="email"
-                       />
-
+                       placeholder="content" />
               </mat-form-field>
-
-
-
-
             <button mat-button type="submit"
                     class="mat-raised-button mat-primary"
                     (click)=  CommentSubmit()
                     [disabled]="!Commentform.valid"
                     mat-dialog-close="yes" >submit comment</button>
-
         </div>
       </form>
     </div>

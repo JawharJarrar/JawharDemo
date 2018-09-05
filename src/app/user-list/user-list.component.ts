@@ -1,15 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import {MatDialog} from '@angular/material';
 
-import { of } from 'rxjs';
-import { Observable } from 'rxjs';
 import { UserService } from '../shared/services/user.service';
 import { DataService } from '../shared/services/data.service';
-import {DataSource} from '@angular/cdk/collections';
+import { UserDataSource } from './userdatasource';
 import {User} from '../shared/models/user.model';
-import {MatDialog} from '@angular/material';
 import { UserformComponent } from '../shared/components/userform/userform.component';
 import { ConfirmComponent } from  '../shared/components/confirm/confirm.component';
-
 
 @Component({
   selector: 'app-data',
@@ -18,8 +15,21 @@ import { ConfirmComponent } from  '../shared/components/confirm/confirm.componen
 })
 export class UserListComponent implements OnInit {
   public users: Array<User>;
-  dataSource = new UserDataSource(this.users);
-  displayedColumns = ['id', 'name', 'email', 'phone', 'website', 'actions'];
+  public  dataSource = new UserDataSource(this.users);
+  public displayedColumns = ['id', 'name', 'email', 'phone', 'website', 'actions'];
+  constructor(
+    private userService: UserService,
+    private  dataService: DataService,
+    public dialog: MatDialog,
+  ) { }
+
+  ngOnInit() {
+  this.userService.getAll().subscribe(data => {
+    this.users = data;
+    this.dataSource = new UserDataSource(this.users);
+  });
+}
+
   AddUser( ) {
     const dialogRef = this.dialog.open(UserformComponent, {
       data: { name: '' }
@@ -55,25 +65,4 @@ export class UserListComponent implements OnInit {
       this.dataSource = new UserDataSource(this.users);
     });
   }
-
-  constructor(private userService: UserService,
-                      private  dataService: DataService,
-                      public dialog: MatDialog,
-                       ) { }
-  ngOnInit() {
-    this.userService.getAll().subscribe(data => {
-      this.users = data;
-      this.dataSource = new UserDataSource(this.users);
-    });
-  }
-}
-
-export class UserDataSource extends DataSource<any> {
-  constructor(private  users: Array<User>) {
-    super();
-  }
-  connect(): Observable< User[]> {
-    return of(this.users) ;
-  }
-  disconnect() {}
 }

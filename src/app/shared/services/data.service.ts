@@ -4,8 +4,8 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class DataService {
-  userid;
-  postid;
-  commentid;
+  public userid;
+  public postid;
+  public commentid;
   constructor() { }
 }

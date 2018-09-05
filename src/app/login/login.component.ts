@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { AuthService } from  '../shared/services/auth.service';
 import { Signup } from '../shared/models/signup.model';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -11,10 +11,14 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-    public user: Signup = new Signup();
-    loginForm: FormGroup;
-    hide = true;
-  constructor(private formBuilder: FormBuilder, private router: Router, private authservice: AuthService ) { }
+  public  user: Signup = new Signup();
+  public loginForm: FormGroup;
+  public hide = true;
+  constructor(
+    private formBuilder: FormBuilder,
+    private router: Router,
+    private authservice: AuthService
+  ) { }
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
@@ -33,5 +37,5 @@ export class LoginComponent implements OnInit {
   onLoginSubmit() {
     this.authservice.login();
     this.router.navigate(['/user/list']);
-    }
   }
+}

@@ -1,10 +1,10 @@
 import { Component, OnInit, Inject } from '@angular/core';
+import { MAT_DIALOG_DATA,  MatDialogRef } from '@angular/material';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { PostService } from '../../services/post.service';
 import { DataService } from '../../services/data.service';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Post } from '../../models/post.model';
-import { MAT_DIALOG_DATA,  MatDialogRef } from '@angular/material';
 
 @Component({
   selector: 'app-postform',
@@ -15,17 +15,18 @@ export class PostformComponent implements OnInit {
   public post: Post = new Post();
   public userid: number;
   PostForm: FormGroup;
-  constructor(private formBuilder: FormBuilder,
-                      private postService: PostService,
-                      private dataservice: DataService,
-                      public dialogRef: MatDialogRef<PostformComponent>,
-                      @Inject(MAT_DIALOG_DATA) public data: any ,
-                    ) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private postService: PostService,
+    private dataservice: DataService,
+    public dialogRef: MatDialogRef<PostformComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any ,
+  ) {}
 
   ngOnInit() {
     if (this.data.action === 'edit') {
-      this.post.title = this.data.title;
-      this.post.body = this.data.body;
+          this.post.title = this.data.title;
+            this.post.body = this.data.body;
     }
     this.PostForm = this.formBuilder.group({
       'title': [this.post.title, [

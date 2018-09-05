@@ -2,7 +2,7 @@
   <div class="list-viewer-wrapper">
     <div class="list-header-title">Register</div>
 
-    <form [formGroup]="signupForm" (ngSubmit)="signupForm.valid"   novalidate>
+    <form [formGroup]='signupForm' (ngSubmit)="signupForm.valid"   novalidate>
       <div class="form-container">
 
 
@@ -20,8 +20,7 @@
                    [(ngModel)]="signup.username"
                    placeholder="Enter your name" />
           </mat-form-field>
-
-        <mat-form-field>
+         <mat-form-field>
             <input id="password"
                    matInput
                    formControlName="password"
@@ -32,9 +31,8 @@
                 {{hide ? 'visibility' : 'visibility_off'}}
               </mat-icon>
           </mat-form-field>
-
           <button mat-button type="submit"
-          routerLink="/posts/list"
+                   routerLink="/posts/list"
                   class="mat-raised-button mat-primary"
                   [disabled]="!signupForm.valid"  (click)= onRegisterSubmit() >Register</button>
           <button mat-button routerLink="/login" class="divider">Login</button>

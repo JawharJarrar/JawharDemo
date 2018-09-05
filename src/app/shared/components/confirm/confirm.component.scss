@@ -1,0 +1,26 @@
+.example-full-width {
+  width: 100%;
+}
+
+.medium-list {
+  margin: auto;
+  width: 900px;
+  padding: 50px;
+}
+
+.list-header-title {
+  color: rgba(0, 0, 0, .54);
+  background: rgba(0, 0, 0, 0.03);
+  padding: 8px 20px;
+  font-weight: bold;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.divider {
+  margin-top: 10px !important;
+}
+

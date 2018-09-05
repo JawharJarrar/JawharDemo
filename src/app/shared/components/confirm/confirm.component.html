@@ -1,16 +1,13 @@
 <h1 mat-dialog-title>Confirm</h1>
 <div mat-dialog-content>{{ confirmMessage }}</div>
+<br>
+<br>
 <div md-dialog-actions>
-
   <button mat-button
   class="mat-raised-button mat-primary"
-
   click=accept()
    mat-dialog-close="yes" >yes</button>
-
    <button mat-button (click)="onNoClick()" tabindex="-1">Cancel</button>
-
    <br>
    <br>
-
 </div>

@@ -1,7 +1,7 @@
 import { Observable } from 'rxjs';
+
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
 
 import {User}  from '../models/user.model';
 
@@ -10,6 +10,8 @@ import {User}  from '../models/user.model';
 })
 export class UserService {
   private serviceUrl = 'https://jsonplaceholder.typicode.com/users/';
+  constructor(private http: HttpClient) {
+  }
 
   getAll(): Observable<User[]> {
     return this.http.get<User[]>(this.serviceUrl);
@@ -29,9 +31,5 @@ export class UserService {
 
   updateUser(userid: number, user: User) {
     return this.http.put(this.serviceUrl + '/' + userid, JSON.stringify(user)).subscribe()  ;
-  }
-
-
-  constructor(private http: HttpClient) {
   }
 }

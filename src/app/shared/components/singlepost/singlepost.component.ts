@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import {MatDialog} from '@angular/material';
 
 import { Post } from '../../models/post.model';
 import { Comment } from '../../models/comment.model';
@@ -8,7 +9,6 @@ import { DataService } from './../../services/data.service';
 import { CommentformComponent } from '../commentform/commentform.component';
 import { PostformComponent } from '../postform/postform.component';
 import { CommentService } from './../../services/comment.service';
-import {MatDialog} from '@angular/material';
 
 @Component({
   selector: 'app-singlepost',
@@ -16,17 +16,22 @@ import {MatDialog} from '@angular/material';
   styleUrls: ['./singlepost.component.scss']
 })
 export class SinglepostComponent implements OnInit {
-
   @Input() post: Post;
   @Input() posts: Array<Post>;
-
-  comments: Array<Comment>;
+  public comments: Array<Comment>;
   public comm: Comment;
-  constructor(private postService: PostService,
-                      private dataService: DataService,
-                      public dialog: MatDialog,
-                      public commentservice: CommentService
-                    ) { }
+  constructor(
+    private postService: PostService,
+    private dataService: DataService,
+    public dialog: MatDialog,
+    public commentservice: CommentService
+  ) { }
+
+  ngOnInit() {
+    this.postService.getComments(this.post.id).subscribe(data => {
+    this.comments = data;
+    });
+  }
 
   deletePost(post: Post) {
     const dialogRef = this.dialog.open(ConfirmComponent, {
@@ -85,12 +90,6 @@ export class SinglepostComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       const index = this.comments.indexOf(comment);
       this.comments[index] = result;
-    });
-  }
-
-  ngOnInit() {
-    this.postService.getComments(this.post.id).subscribe(data => {
-    this.comments = data;
     });
   }
 }

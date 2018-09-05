@@ -1,7 +1,6 @@
 import { Injectable }   from '@angular/core';
 import { HttpClient }  from '@angular/common/http';
 
-
 import { Comment } from '../models/comment.model';
 
 @Injectable({
@@ -9,7 +8,6 @@ import { Comment } from '../models/comment.model';
 })
 export class CommentService {
   private commentsUrl = 'https://jsonplaceholder.typicode.com/comments/';
-
   constructor(private http: HttpClient) {}
 
   addComment(comment: Comment) {

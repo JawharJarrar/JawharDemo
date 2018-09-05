@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material';
 
 import { PostService } from '../shared/services/post.service';
 import { PostformComponent } from '../shared/components/postform/postform.component';
 import { Post } from '../shared/models/post.model';
-import { MatDialog } from '@angular/material';
 
 @Component({
   selector: 'app-posts',
@@ -11,9 +11,14 @@ import { MatDialog } from '@angular/material';
   styleUrls: ['./posts-list.component.scss']
 })
 export class PostsListComponent implements OnInit {
-  posts: Array<Post>;
-  constructor(private postService: PostService, public dialog: MatDialog,
-  ) { }
+  public  posts: Array<Post>;
+  constructor(private postService: PostService, public dialog: MatDialog) { }
+
+  ngOnInit() {
+    this.postService.getAll().subscribe(data => {
+    this.posts = data;
+    });
+  }
 
   AddPost() {
     const dialogRef = this.dialog.open(PostformComponent,  {
@@ -21,12 +26,6 @@ export class PostsListComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(result => {
       this.posts.push(result);
-    });
-  }
-
-  ngOnInit() {
-    this.postService.getAll().subscribe(data => {
-    this.posts = data;
     });
   }
 }

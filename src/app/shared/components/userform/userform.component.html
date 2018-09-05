@@ -1,54 +1,43 @@
 <div class="medium-list">
-    <div class="list-viewer-wrapper">
-      <div class="list-header-title"> user form</div>
-
+  <div class="list-viewer-wrapper">
+    <div class="list-header-title"> user form</div>
       <form [formGroup]="UserForm" (ngSubmit)="UserForm.valid" >
         <div class="form-container">
-
           <mat-form-field>
               <input id="email"
                      matInput
                      formControlName="email"
-                     [(ngModel)]="x.email"
+                     [(ngModel)]="user.email"
                      placeholder=" email"
                      />
-            </mat-form-field>
-            <mat-form-field>
-                <input id="username"
-                       matInput
-                       formControlName="name"
-                       [(ngModel)]="x.name"
-                       placeholder=" name" />
-              </mat-form-field>   <mat-form-field>
-                    <input id="phone"
-                           matInput
-                           formControlName="phone"
-                           [(ngModel)]="x.phone"
-                           placeholder=" phone number" />
-                  </mat-form-field>
-
-
-
-                  <mat-form-field>
-                  <input id="website"
-                  matInput
-                  formControlName="website"
-                  [(ngModel)]="x.website"
-                  placeholder=" website" />
+          </mat-form-field>
+          <mat-form-field>
+              <input id="username"
+                      matInput
+                      formControlName="name"
+                      [(ngModel)]="user.name"
+                      placeholder=" name" />
+          </mat-form-field>
+          <mat-form-field>
+              <input id="phone"
+                      matInput
+                      formControlName="phone"
+                      [(ngModel)]="user.phone"
+                      placeholder=" phone number" />
+          </mat-form-field>
+          <mat-form-field>
+              <input id="website"
+                      matInput
+                      formControlName="website"
+                      [(ngModel)]="user.website"
+                      placeholder=" website" />
          </mat-form-field>
-
-
-
-
-
-
-            <button mat-button type="submit"
-                    class="mat-raised-button mat-primary"
-                    (click)= UserSubmit()
-                    [disabled]="!UserForm.valid"
-                    mat-dialog-close="yes">submit  user</button>
-
-        </div>
-      </form>
-    </div>
-  </div>
+              <button mat-button type="submit"
+                      class="mat-raised-button mat-primary"
+                      (click)= UserSubmit()
+                      [disabled]="!UserForm.valid"
+                      mat-dialog-close="yes">submit  user</button>
+      </div>
+    </form>
+   </div>
+</div>

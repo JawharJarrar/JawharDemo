@@ -1,6 +1,6 @@
-
 import { fakeAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatSidenavModule } from '@angular/material/sidenav';
+
 import { NavigationComponent } from './navigation.component';
 
 describe('NavigationComponent', () => {
@@ -10,7 +10,8 @@ describe('NavigationComponent', () => {
   beforeEach(fakeAsync(() => {
     TestBed.configureTestingModule({
       imports: [MatSidenavModule],
-      declarations: [NavigationComponent]
+      declarations: [NavigationComponent],
+
     })
     .compileComponents();
 

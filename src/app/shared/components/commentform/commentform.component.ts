@@ -1,10 +1,10 @@
 import { Component, OnInit, Inject } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { MAT_DIALOG_DATA,  MatDialogRef } from '@angular/material';
 
 import { CommentService } from '../../services/comment.service';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { DataService } from '../../services/data.service';
 import { Comment } from '../../models/comment.model';
-import { MAT_DIALOG_DATA,  MatDialogRef } from '@angular/material';
 
 @Component({
   selector: 'app-commentform',
@@ -14,12 +14,13 @@ import { MAT_DIALOG_DATA,  MatDialogRef } from '@angular/material';
 export class CommentformComponent implements OnInit {
   public comment: Comment = new Comment();
   Commentform: FormGroup;
-  constructor(private formBuilder: FormBuilder,
-                      private dataservice:  DataService,
-                      private  commentservice: CommentService,
-                      public dialogRef: MatDialogRef<CommentformComponent>,
-                      @Inject(MAT_DIALOG_DATA) public data: any ,
-                    ) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private dataservice:  DataService,
+    private  commentservice: CommentService,
+    public dialogRef: MatDialogRef<CommentformComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any,
+  ) {}
 
   ngOnInit() {
     if (this.data.action === 'edit') {
