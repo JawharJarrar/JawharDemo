@@ -1,20 +1,29 @@
-import { MatDialogRef } from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { RouterTestingModule } from '@angular/router/testing';
 import { MaterialModule } from './../material';
+import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { MAT_DIALOG_DATA,  MatDialogRef } from '@angular/material';
 
 import { CommentformComponent } from './commentform.component';
 
-describe('CommentformComponent', () => {
+describe('UpdatecommentComponent', () => {
   let component: CommentformComponent;
   let fixture: ComponentFixture<CommentformComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [ RouterTestingModule, FormsModule, HttpClientModule, MatDialogRef, ReactiveFormsModule, MaterialModule ],
-      declarations: [ CommentformComponent ]
+      imports: [
+        MaterialModule,
+        ReactiveFormsModule,
+        BrowserAnimationsModule,
+        HttpClientModule
+       ],
+      declarations: [ CommentformComponent ],
+      providers: [
+        { provide: MAT_DIALOG_DATA , useValue: {} },
+        { provide: MatDialogRef, useValue: {} }
+    ]
     })
     .compileComponents();
   }));

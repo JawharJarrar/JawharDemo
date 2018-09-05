@@ -1,6 +1,10 @@
+import { MaterialModule } from './../shared/components/material';
+import { HttpClientModule } from '@angular/common/http';
+import { RouterTestingModule } from '@angular/router/testing';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PostsListComponent } from './posts-list.component';
+import { SinglepostComponent } from '../shared/components/components.module';
 
 describe('PostsListComponent', () => {
   let component: PostsListComponent;
@@ -8,7 +12,9 @@ describe('PostsListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PostsListComponent ]
+      imports: [RouterTestingModule, HttpClientModule, MaterialModule],
+
+      declarations: [ PostsListComponent, SinglepostComponent]
     })
     .compileComponents();
   }));

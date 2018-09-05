@@ -16,7 +16,7 @@ import { CommentService } from './../../services/comment.service';
   styleUrls: ['./singlepost.component.scss']
 })
 export class SinglepostComponent implements OnInit {
-  @Input() post: Post;
+  @Input() post: Post = new Post() ;
   @Input() posts: Array<Post>;
   public comments: Array<Comment>;
   public comm: Comment;
