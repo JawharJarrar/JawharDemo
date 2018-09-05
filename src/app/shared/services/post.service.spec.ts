@@ -3,7 +3,6 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { PostService } from './post.service';
 
-
 describe('PostService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
