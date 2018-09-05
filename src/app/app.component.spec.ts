@@ -1,8 +1,10 @@
-import { MaterialModule } from './shared/components/material';
-import { NavigationComponent } from './shared/components/navigation/navigation.component';
 import { TestBed, async } from '@angular/core/testing';
-import { AppComponent } from './app.component';
 import { RouterTestingModule } from '@angular/router/testing';
+
+import { MaterialModule } from './shared/components/material';
+import { AppComponent } from './app.component';
+import { NavigationComponent } from './shared/components/navigation/navigation.component';
+
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({

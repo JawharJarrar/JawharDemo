@@ -5,7 +5,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ConfirmComponent } from './confirm.component';
 import { MaterialModule } from './../material';
 
-
 describe('ConfirmComponent', () => {
   let component: ConfirmComponent;
   let fixture: ComponentFixture<ConfirmComponent>;
