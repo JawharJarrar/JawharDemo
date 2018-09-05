@@ -1,11 +1,11 @@
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientModule } from '@angular/common/http';
-import { MaterialModule } from './../material';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { MAT_DIALOG_DATA,  MatDialogRef } from '@angular/material';
 
 import { CommentformComponent } from './commentform.component';
+import { MaterialModule } from './../material';
 
 describe('UpdatecommentComponent', () => {
   let component: CommentformComponent;

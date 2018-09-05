@@ -1,10 +1,10 @@
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
-import { MaterialModule } from './../material';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { MaterialModule } from './../material';
 import { UserformComponent } from './userform.component';
 
 describe('AdduserComponent', () => {

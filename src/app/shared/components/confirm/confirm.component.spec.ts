@@ -1,10 +1,10 @@
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ReactiveFormsModule } from '@angular/forms';
-import { MaterialModule } from './../material';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { ConfirmComponent } from './confirm.component';
+import { MaterialModule } from './../material';
+
 
 describe('ConfirmComponent', () => {
   let component: ConfirmComponent;
@@ -12,7 +12,7 @@ describe('ConfirmComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [MaterialModule, ReactiveFormsModule, BrowserAnimationsModule],
+      imports: [MaterialModule, ReactiveFormsModule],
       declarations: [ ConfirmComponent ],
       providers: [
         { provide: MAT_DIALOG_DATA , useValue: {} },
